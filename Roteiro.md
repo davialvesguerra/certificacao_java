@@ -42,7 +42,7 @@ https://www.alura.com.br/apostila-java-web/o-que-e-java-ee?srsltid=AfmBOopwF-sN-
 
 
 
-## Basic Java Elements
+## Java Basics
 
 ### 1) JDK and JRE
 
@@ -209,6 +209,28 @@ public class HelloWorld {
 ```
 
 https://refreshjava.com/java/structure-of-java-program
+
+
+### 4) Compile and execute a Java program
+
+#### Compile the Java program
+
+
+Use the javac command to compile your Java file. This will generate a .class file.
+
+```java
+javac HelloWorld.java
+```
+
+Use the java command to run the compiled Java program.
+
+```Java
+java HelloWorld
+```
+
+## Basic Java Elements
+
+https://www.oracle.com/java/technologies/javase/codeconventions-introduction.html
 
 ## Working with Java Data Types
 ## Working with Java Operator

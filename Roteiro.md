@@ -506,7 +506,175 @@ Before conversion: 166.66
 After conversion into long type: 166
 After conversion into int type: 166
 ```
+
+### 3) Declare and initialize a String variable
+
+https://www.baeldung.com/java-string-initialization
+https://www.baeldung.com/java-string-pool
+
+#### Creation 
+
+We can use the new keyword or the literal syntax:
+
+```java
+String usingNew = new String("baeldung");
+String usingLiteral = "baeldung";
+```
+
+
+
+#### String Declaration 
+
+```java 
+public class StringInitialization {
+
+    String fieldString;
+
+    void printDeclaredOnlyString() {
+        String localVarString;
+        
+        // System.out.println(localVarString); -> compilation error
+        System.out.println(fieldString);
+    }
+}
+```
+As we can see, if we try to use localVarString before giving it a value, we’ll get a compilation error. On the other hand, the console will show “null” for fieldString‘s value.
+
+See, member variables are initialized with a default value when the class is constructed, null in String‘s case. But, we have to initialize local variables ourselves.
+
+If we give localVarString a value of null, we’ll see that the two are, indeed, now equal:
+
+#### String Initialization Using Literals
+
+Let’s now create two Strings using the same literal:
+
+```java
+String literalOne = "Baeldung";
+String literalTwo = "Baeldung";
+assertTrue(literalOne == literalTwo);
+```
+
+
+
+The reason for this harks back to the fact that Strings are stored in a pool. literalOne adds the String “baeldung” to the pool, and literalTwo reuses it.
+
+#### String Initialization Using new
+
+
+We’ll see some different behavior, though, if we use the new keyword.
+
+```java
+String newStringOne = new String("Baeldung");
+String newStringTwo = new String("Baeldung");
+
+assertFalse(newStringOne == newStringTwo);
+```
+
+#### Empty Strings
+
+```java
+String emptyLiteral = "";
+String emptyNewString = new String("");
+String emptyNewStringTwo = new String();
+```
+
+
+As we know by now, the emptyLiteral will be added to the String pool, while the other two go directly onto the heap.
+
+Although these won’t be the same objects, all of them will have the same value:
+
+#### null Values 
+
+Let’s declare and initialize a null String:
+
+```java
+String nullValue = null;
+```
+
+If we printed nullValue, we’d see the word “null”, as we previously saw. And, if we tried to invoke any methods on nullValue, we’d get a NullPointerException, as expected.
+
+
 ## Working with Java Operator
+
+### 1) Use basic arithmetic operators to manipulate data including +, -, *, /, and %
+
+![alt text](image-1.png)
+
+### 2) Use the increment and decrement operators
+
+https://www.javatpoint.com/increment-and-decrement-operators-questions-in-java
+
+#### 2.1 Increment Operator (++):
+
+The increment operator in Java is denoted by ++. It adds 1 to the current value of a variable. There are two ways to use the increment operator:
+
+
+```java
+int x = 5;  
+x++;   // Equivalent to x = x + 1;  
+```
+or
+
+```java
+int x = 5;  
+++x;   // Equivalent to x = x + 1;  
+```
+
+Both of these statements increase the value of x by 1. However, there is a subtle difference between the two when used as part of a larger expression, which we will explore later.
+
+##### 2.1.1 Prefix Increment Operator:
+
+When the increment operator is placed before the variable (++x), it increments the value of the variable before the value is used in the expression. For example:
+
+```java
+int a = 3;  
+int b = ++a;  // Now, a is 4 and b is also 4  
+```
+In this case, a is incremented before its value is assigned to b.
+
+##### 2.1.2 Postfix Increment Operator:
+
+When the increment operator is placed after the variable (x++), it increments the value of the variable after its current value is used in the expression. For example:
+
+```java
+int c = 3;  
+int d = c++;  // Now, c is 4, but d is 3  
+```
+
+Here, d is assigned the current value of c before c is incremented.
+
+
+#### 2.2 Decrement Operator (--):
+
+The decrement operator in Java is denoted by --. It subtracts 1 from the current value of a variable. Similar to the increment operator, there are two ways to use the decrement operator:
+
+```java
+int y = 8;  
+y--;   // Equivalent to y = y - 1;  
+
+int y = 8;  
+--y;   // Equivalent to y = y - 1;`  
+```
+Both of these statements decrease the value of y by 1.
+
+##### 2.2.1 Prefix Decrement Operator 
+
+Similar to the increment operator, the prefix decrement operator (--x) decrements the value of the variable before its value is used in the expression.
+
+```java
+int m = 7;  
+int n = --m;  // Now, m is 6 and n is also 6   
+```
+
+##### 2.2.2 Postfix Decrement Operator 
+
+The postfix decrement operator (x--) decrements the value of the variable after its current value is used in the expression.
+
+```java
+int p = 7;  
+int q = p--;  // Now, p is 6, but q is 7  
+```
+
 ## Working with the String Class
 ## Using Decision Statements
 ## Java Methods

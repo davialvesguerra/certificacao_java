@@ -696,7 +696,25 @@ https://www.digitalocean.com/community/tutorials/relational-operators-in-java
 https://www.geeksforgeeks.org/java-assignment-operator-with-examples/
 
 
-### 5. Use conditional operators including &&, ||, and ?
+### 5. Use conditional operators including &&, ||, and ? :
+
+#### 5.1 Conditional AND
+
+The operator is applied between two Boolean expressions. It is denoted by the two AND operators (&&). It returns true if and only if both expressions are true, else returns false.
+
+#### 5.2 Conditional OR
+
+The operator is applied between two Boolean expressions. It is denoted by the two OR operator (||). It returns true if any of the expression is true, else returns false.
+
+#### 5.3 Ternary Operator
+
+The meaning of ternary is composed of three parts. The ternary operator (? :) consists of three operands. It is used to evaluate Boolean expressions. The operator decides which value will be assigned to the variable. It is the only conditional operator that accepts three operands. It can be used instead of the if-else statement. It makes the code much more easy, readable, and shorter.
+
+```
+variable = (condition) ? expression1 : expression2  
+```
+
+The above statement states that if the condition returns true, expression1 gets executed, else the expression2 gets executed and the final result stored in a variable.
 
 https://www.javatpoint.com/conditional-operator-in-java
 

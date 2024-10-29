@@ -772,7 +772,214 @@ The format() method of Formatter class accepts a wide variety of format specifie
 |        %n        | Insert a new line character |
 |        %s        |            String           |
 
+## Working with the Random and Math Classes
+
+### 1. Use the Random class 
+
+https://www.geeksforgeeks.org/java-util-random-class-java/
+https://www.scaler.com/topics/random-class-in-java/
+
+Random class is used to generate pseudo-random numbers in java. An instance of this class is thread-safe. The instance of this class is however cryptographically insecure. This class provides various method calls to generate different random data types such as float, double, int.
+
+| Método | Descrição |
+|---|---|
+| `nextBoolean()` | Retorna o próximo valor booleano pseudoaleatório. |
+| `nextDouble()` | Retorna o próximo valor double pseudoaleatório. |
+| `nextFloat()` | Retorna o próximo valor float pseudoaleatório. |
+| `nextGaussian()` | Retorna o próximo valor double pseudoaleatório distribuído de acordo com uma distribuição normal (Gaussiana). |
+| `nextInt()` | Retorna o próximo valor int pseudoaleatório. |
+| `nextInt(int bound)` | Retorna um valor int pseudoaleatório entre 0 (inclusivo) e o valor especificado (exclusivo). |
+| `nextLong()` | Retorna o próximo valor long pseudoaleatório. |
+| `setSeed(long seed)` | Define o valor da semente para este gerador de números aleatórios. |
+| `nextBytes(byte[] bytes)` | Gera bytes aleatórios e os coloca no array fornecido. |
+| `ints()` | Retorna um stream infinito de inteiros pseudoaleatórios. |
+| `ints(long streamSize)` | Retorna um stream de inteiros pseudoaleatórios com o tamanho especificado. |
+| `ints(int randomNumberOrigin, int randomNumberBound)` | Retorna um stream infinito de inteiros pseudoaleatórios dentro do intervalo especificado. |
+| `ints(long streamSize, int randomNumberOrigin, int randomNumberBound)` | Retorna um stream de inteiros pseudoaleatórios com o tamanho especificado dentro do intervalo especificado. |
+| `longs()` | Retorna um stream infinito de longos pseudoaleatórios. |
+| `longs(long streamSize)` | Retorna um stream de longos pseudoaleatórios com o tamanho especificado. |
+| `longs(long randomNumberOrigin, long randomNumberBound)` | Retorna um stream infinito de longos pseudoaleatórios dentro do intervalo especificado. |
+| `longs(long streamSize, long randomNumberOrigin, long randomNumberBound)` | Retorna um stream de longos pseudoaleatórios com o tamanho especificado dentro do intervalo especificado. |
+| `doubles()` | Retorna um stream infinito de doubles pseudoaleatórios. |
+| `doubles(long streamSize)` | Retorna um stream de doubles pseudoaleatórios com o tamanho especificado. |
+| `doubles(double randomNumberOrigin, double randomNumberBound)` | Retorna um stream infinito de doubles pseudoaleatórios dentro do intervalo especificado. |
+| `doubles(long streamSize, double randomNumberOrigin, double randomNumberBound)` | Retorna um stream de doubles pseudoaleatórios com o tamanho especificado dentro do intervalo especificado. |
+
+### 2. Use the Math class 
+
+The Java Math class has many methods that allows you to perform mathematical tasks on numbers.
+
+| Método | Descrição |
+|---|---|
+| `abs(double a)` | Retorna o valor absoluto de um valor. |
+| `acos(double a)` | Retorna o arco-cosseno de um valor. |
+| `asin(double a)` | Retorna o arco-seno de um valor. |
+| `atan(double a)` | Retorna o arco-tangente de um valor. |
+| `cbrt(double a)` | Retorna a raiz cúbica de um valor. |
+| `ceil(double a)` | Retorna o menor valor inteiro maior ou igual ao argumento. |
+| `cos(double a)` | Retorna o cosseno de um ângulo. |
+| `exp(double a)` | Retorna a constante de Euler elevada à potência do argumento. |
+| `floor(double a)` | Retorna o maior valor inteiro menor ou igual ao argumento. |
+| `log(double a)` | Retorna o logaritmo natural (base e) de um valor. |
+| `log10(double a)` | Retorna o logaritmo de base 10 de um valor. |
+| `max(double a, double b)` | Retorna o maior de dois valores. |
+| `min(double a, double b)` | Retorna o menor de dois valores. |
+| `pow(double a, double b)` | Retorna o valor de a elevado à potência de b. |
+| `random()` | Retorna um valor double positivo maior ou igual a 0.0 e menor que 1.0. |
+| `round(double a)` | Retorna o valor arredondado de um valor. |
+| `sin(double a)` | Retorna o seno de um ângulo. |
+| `sqrt(double a)` | Retorna a raiz quadrada de um valor. |
+| `tan(double a)` | Retorna a tangente de um ângulo. |
+
+
 ## Using Decision Statements
+
+### 1. Use the decision making statement  (if-then and if-then-else)
+
+#### 1.1 If Statement in Java 
+
+The “if” statement in Java is like a traffic signal that helps your program make decisions. It allows you to run a specific piece of code only if a particular condition is met. It’s like saying, “If something is true, then do this!”
+
+```java 
+if(condition){
+//code to be executed
+}
+```
+
+```java 
+public class IfStatementExample {
+    public static void main(String[] args) {
+
+        int age = 18;
+       
+        if (age >= 18) {
+            System.out.println("You are eligible to vote!");
+        }
+    }
+}
+```
+
+#### 1.2 If-Else Statement in Java
+
+Now you may be wondering what if the condition is not true and you want to execute some another block of code. The “if-else” statement in Java is another decision-making statement that allows you to execute different blocks of code based on the condition’s result. It provides an alternative path to take when the condition is not true.
+
+```java 
+if(condition){
+//code to be executed if the condition is true
+} else{
+//code to be executed if the condition is false
+}
+```
+Here’s a simple example to illustrate the usage of the “if-else” statement:
+
+```java
+public class IfElseStatementExample {
+    public static void main(String[] args) {
+        int age = 16;
+       
+        if (age >= 18) {
+            System.out.println("You are eligible to vote!");
+        } else {
+            System.out.println("You are not eligible to vote yet.");
+        }
+    }
+}
+```
+
+### 2. Use the switch statement 
+
+Java’s “switch” statement is a decision-making statement that lets you choose which of numerous code blocks to run depending on the value of a certain variable. It offers a practical method for handling various alternatives or scenarios in your code.
+
+```java 
+switch(expression)
+{
+case <value1>:
+//code to be executed
+break;
+case <value2>:
+//code to be executed
+break;
+default:
+//code to be defaultly executed
+}
+```
+
+Imagine you are in a coffee shop and want to order a beverage. You approach the counter, and the barista asks for your order. Instead of using a series of “if” statements to check each possible option, the barista uses a switch statement.
+
+The barista takes your order and checks the value you provide. Based on that value, they can quickly determine which beverage you want and prepare it accordingly. Each possible value represents a different option, such as “coffee,” “tea,” “cappuccino,” or “latte.” The barista can efficiently handle all these options using a switch statement.
+
+Here’s a simple example code that demonstrates the use of the switch statement:
+
+```java 
+public class BeverageExample {
+    public static void main(String[] args) {
+        String beverage = "cappuccino";
+        switch (beverage) {
+            case "coffee":
+                System.out.println("Enjoy your hot coffee!");
+                break;
+            case "tea":
+                System.out.println("Savor the flavor of your tea!");
+                break;
+            case "cappuccino":
+                System.out.println("Indulge in the creamy cappuccino!");
+                break;
+            default:
+                System.out.println("Sorry, we don't have that beverage.");
+        }
+    }
+}
+```
+
+#### The break keyword 
+
+When Java reaches a break keyword, it breaks out of the switch block.
+This will stop the execution of more code and case testing inside the block.
+When a match is found, and the job is done, it's time for a break. There is no need for more testing.
+A break can save a lot of execution time because it "ignores" the execution of all the rest of the code in the switch block.
+
+#### The default Keyword
+
+The default keyword specifies some code to run if there is no case match. Note that if the default statement is used as the last statement in a switch block, it does not need a break.
+
+
+### 3. Compare how == differs between primitives and objects 
+
+Both the equals() method and the == operator are used to compare two objects in Java.
+
+The Java string equals() method, compares two strings and returns true if all characters match in both strings, else returns false.
+
+The == operator compares the reference or memory location of objects in a heap, whether they point to the same location or not.
+Whenever we create an object using the operator new, it will create a new memory location for that object. So we use the == operator to check memory location or address of two objects are the same or not.
+
+In general, both equals() and “==” operators in Java are used to compare objects to check equality, but here are some of the differences between the two: 
+
+1. The main difference between the .equals() method and the == operator is that one is a method, and the other is the operator.
+2. We can use == operators for reference comparison (address comparison) and .equals() method for content comparison. In simple words, == checks if both objects point to the same memory location whereas .equals() evaluates to the comparison of values in the objects.
+3. If a class does not override the equals method, then by default, it uses the equals(Object o) method of the closest parent class that has overridden this method. **See Why to Override equals(Object) and hashCode() method? in detail.
+
+We can apply equality operators for every primitive type, including the boolean type. We can also apply equality operators for object types. 
+
+If we apply == for object types then, there should be compatibility between argument types (either child to parent or parent to child or same type). Otherwise, we will get a compile-time error. 
+
+### 4. Compare two String objects by using the compareTo and equals methods
+
+In String Context:
+- compareTo: Compares two strings lexicographically.
+- equals: Compares this string to the specified object.
+
+compareTo compares two strings by their characters (at same index) and returns an integer (positive or negative) accordingly.
+
+
+```java
+String s1 = "ab";
+String s2 = "ab";
+String s3 = "qb";
+s1.compareTo(s2); // is 0
+s1.compareTo(s3); // is -16
+s3.compareTo(s1); // is 16
+```
+
 ## Java Methods
 ## Using Looping Statements
 ## Arrays and ArrayLists

@@ -675,7 +675,103 @@ int p = 7;
 int q = p--;  // Now, p is 6, but q is 7  
 ```
 
+### 3. Relation Operator in Java 
+
+https://www.digitalocean.com/community/tutorials/relational-operators-in-java
+
+ - == is the equality operator. This returns true if both the operands are referring to the same object, otherwise false.
+ - != is for non-equality operator. It returns true if both the operands are referring to the different objects, otherwise false.
+ - < is less than operator.
+ - \> is greater than operator.
+ - <= is less than or equal to operator.
+ - \>= is greater than or equal to operator.
+
+#### 3.1 Relational Operators Supported Data Types
+
+ - The == and != operators can be used with any primitive data types as well as objects.
+ - The <, >, <=, and >= can be used with primitive data types that can be represented in numbers. It will work with char, byte, short, int, etc. but not with boolean. These operators are not supported for objects.
+
+### 4. Use arithmetic assignment operators
+
+https://www.geeksforgeeks.org/java-assignment-operator-with-examples/
+
+
+### 5. Use conditional operators including &&, ||, and ?
+
+https://www.javatpoint.com/conditional-operator-in-java
+
+### 6. Describe the operator precedence and use of parenthesis
+
+https://www.refreshjava.com/java/operator-precedence#:~:text=What%20changes%20the%20precedence%20of,(a%2Bb)*c.
+
 ## Working with the String Class
+
+### 1. Develop code that uses methods from the String class
+
+https://www.javatpoint.com/methods-of-string-class
+
+- **charAt(int index)**: retorna o caractere na posição especificada.
+
+- **codePointAt(int index)**: retorna o valor Unicode do caractere na posição especificada.
+
+- **compareTo(String anotherString)**: compara lexicograficamente duas strings.
+
+- **compareToIgnoreCase(String str)**: compara lexicograficamente duas strings, ignorando diferenças entre maiúsculas e minúsculas.
+
+- **concat(String str)**: concatena a string especificada ao final desta string.
+
+- **contains(CharSequence s)**: verifica se a string contém a sequência de caracteres especificada.
+
+- **contentEquals(CharSequence cs)**: compara a sequência de caracteres especificada com esta string.
+
+- **endsWith(String suffix)**: verifica se a string termina com o sufixo especificado.
+
+- **equals(Object anObject)**: compara se esta string é igual ao objeto especificado.
+
+- **equalsIgnoreCase(String anotherString)**: compara se esta string é igual a outra string, ignorando diferenças entre maiúsculas e minúsculas.
+
+- **format(String format, Object... args)**: retorna uma string formatada usando a string de formato e argumentos especificados.
+
+- **indexOf(int ch)**: retorna o índice da primeira ocorrência do caractere especificado.
+
+- **isEmpty()**: verifica se a string está vazia.
+
+- **lastIndexOf(int ch)**: retorna o índice da última ocorrência do caractere especificado.
+
+- **length()**: retorna o comprimento da string.
+
+- **replace(char oldChar, char newChar)**: substitui todas as ocorrências de um caractere especificado por um novo caractere.
+
+- **split(String regex)**: divide a string em uma matriz de substrings em torno das correspondências da expressão regular especificada.
+
+- **startsWith(String prefix)**: verifica se a string começa com o prefixo especificado.
+
+- **substring(int beginIndex, int endIndex)**: retorna uma substring especificada pelos índices de início e fim.
+
+- **toLowerCase()**: converte todos os caracteres em minúsculas usando as regras da localidade padrão.
+
+- **toUpperCase()**: converte todos os caracteres em maiúsculas usando as regras da localidade padrão.
+
+- **trim()**: remove espaços em branco de ambos os lados da string.
+
+### 2. Format Strings using escape sequences including %d, %n, and %s
+
+https://www.geeksforgeeks.org/format-specifiers-in-java/
+
+Format specifiers begin with a percent character (%) and terminate with a “type character, ” which indicates the type of data (int, float, etc.) that will be converted the basic manner in which the data will be represented (decimal, hexadecimal, etc.) The general syntax of a format specifier is
+
+```
+% [flags] [width] [.precision] [argsize] typechar
+```
+
+The format() method of Formatter class accepts a wide variety of format specifiers. When an uppercase specifier is used, then letters are shown in uppercase. Otherwise, the upper- and lowercase specifiers perform the same conversion. 
+
+| Format specifier |      Conversion applied     |
+|:----------------:|:---------------------------:|
+|        %d        |       Decimal integer       |
+|        %n        | Insert a new line character |
+|        %s        |            String           |
+
 ## Using Decision Statements
 ## Java Methods
 ## Using Looping Statements

@@ -998,7 +998,172 @@ s1.compareTo(s3); // is -16
 s3.compareTo(s1); // is 16
 ```
 
-## Java Methods
 ## Using Looping Statements
+
+## Debugging and Exception Handling
+
+### 1. Identify syntax and logic errors
+
+https://www.geeksforgeeks.org/types-of-errors-in-java-with-examples/
+
+https://www.shiksha.com/online-courses/articles/difference-between-errors-and-exceptions-in-java-blogId-155937#:~:text=In%20Java%2C%20errors%20occur%20at,handled%20using%20try%2Dcatch%20blocks.
+
+#### 1.1 Run Time Error
+
+Run Time errors occur or we can say, are detected during the execution of the program. Sometimes these are discovered when the user enters an invalid data or data which is not relevant. Runtime errors occur when a program does not contain any syntax errors but asks the computer to do something that the computer is unable to reliably do. During compilation, the compiler has no technique to detect these kinds of errors. It is the JVM (Java Virtual Machine) that detects it while the program is running. To handle the error during the run time we can put our error code inside the try block and catch the error inside the catch block. 
+
+#### 1.2 Compile Time Error
+
+Compile Time Errors are those errors which prevent the code from running because of an incorrect syntax such as a missing semicolon at the end of a statement or a missing bracket, class not found, etc. These errors are detected by the java compiler and an error message is displayed on the screen while compiling. Compile Time Errors are sometimes also referred to as Syntax errors. These kind of errors are easy to spot and rectify because the java compiler finds them for you. The compiler will tell you which piece of code in the program got in trouble and its best guess as to what you did wrong. Usually, the compiler indicates the exact line where the error is, or sometimes the line just before it, however, if the problem is with incorrectly nested braces, the actual error may be at the beginning of the block. In effect, syntax errors represent grammatical errors in the use of the programming language. 
+
+#### 1.3 Logical Error
+
+Logical Error: A logic error is when your program compiles and executes, but does the wrong thing or returns an incorrect result or no output when it should be returning an output. These errors are detected neither by the compiler nor by JVM. The Java system has no idea what your program is supposed to do, so it provides no additional information to help you find the error. Logical errors are also called Semantic Errors. 
+
+### 2. Use exception handling
+
+https://www.javatpoint.com/exception-handling-in-java
+
+In Java, an exception is an event that occurs during the execution of a program that disrupts the normal flow of instructions. These exceptions can occur for various reasons, such as invalid user input, file not found, or division by zero. When an exception occurs, it is typically represented by an object of a subclass of the java.lang.Exception class.
+
+#### 2.1 Hierarchy of Java Exception classes
+
+![alt text](image-2.png)
+
+#### 2.2 Types of Java Exceptions
+
+##### 2.2.1 Checked Exceptions
+
+Checked exceptions are the exceptions that are checked at compile-time. This means that the compiler verifies that the code handles these exceptions either by catching them or declaring them in the method signature using the throws keyword. 
+
+**IOException**: An exception is thrown when an input/output operation fails, such as when reading from or writing to a file.
+
+**SQLException**: It is thrown when an error occurs while accessing a database.
+
+**ParseException**: Indicates a problem while parsing a string into another data type, such as parsing a date.
+
+**ClassNotFoundException**: It is thrown when an application tries to load a class through its string name using methods like Class.forName(), but the class with the specified name cannot be found in the classpath.
+
+##### 2.2.2 Unchecked Exceptions
+
+Unchecked exceptions, also known as runtime exceptions, are not checked at compile-time. These exceptions usually occur due to programming errors, such as logic errors or incorrect assumptions in the code. They do not need to be declared in the method signature using the throws keyword, making it optional to handle them. Examples of unchecked exceptions include:
+
+**NullPointerException**: It is thrown when trying to access or call a method on an object reference that is null.
+
+**ArrayIndexOutOfBoundsException**: It occurs when we try to access an array element with an invalid index.
+
+**ArithmeticException**: It is thrown when an arithmetic operation fails, such as division by zero.
+
+**IllegalArgumentException**: It indicates that a method has been passed an illegal or inappropriate argument.
+
+#### 2.3 Difference between Checked and Unchecked Exceptions
+
+##### 2.3.1 Checked Exceptions
+
+**Compile-time Check**: Checked exceptions are checked at compile-time by the Java compiler. This means that the compiler ensures that these exceptions are either caught or declared in the method signature using the throws keyword.
+
+**Examples**: Examples of checked exceptions include IOException, SQLException, ParseException, etc.
+
+**Forced Handling**: Checked exceptions enforce explicit handling, either by catching them or declaring them to be thrown. This helps in improving code reliability and robustness.
+
+**Recovery Possible**: Checked exceptions typically represent recoverable conditions, such as file not found or database connection failure, where the application may take corrective action.
+
+##### 2.3.2 Unchecked Exceptions
+
+**Not Checked at Compile-time**: Unlike checked exceptions, unchecked exceptions are not checked at compile-time. This means that the compiler does not enforce handling of unchecked exceptions.
+
+**Examples**: Examples of unchecked exceptions include NullPointerException, ArrayIndexOutOfBoundsException, ArithmeticException, etc.
+
+**Runtime Errors**: Unchecked exceptions often represent programming errors or unexpected conditions during runtime, such as null references or array index out of bounds.
+
+**Optional Handling**: Handling of unchecked exceptions is optional. While it's good practice to handle them for robustness, it's not mandatory.
+
+### 3. Handle common exceptions thrown
+
+https://www.baeldung.com/java-exceptions
+
+https://pt.stackoverflow.com/questions/17025/usando-as-palavras-chave-throws-e-throw
+
+
+#### 3.1 Checked Exception
+
+throws faz parte da declaração do método, da sua assinatura. Ele define parte da API. Indica que um trecho de código que chame este método deve obrigatoriamente capturar uma possível exceção que ele lance. Mesmo que não deseje fazer nada com a exceção, ela deve ser capturada e relançada. Ou deve indicar que o método que usa outro com uma exceção possível tem um throw, como abaixo:
+
+```java 
+public void M1() throws IOException {
+    FileReader f = new FileReader("notExist.txt");
+}
+```
+Neste caso, qualquer método que chame M1() deve obrigatoriamente tratar a exceção IOException com um try ou indicar que ele lança a mesma exceção especificada em M1().
+
+Pode parecer que não há nenhuma exceção neste método, mas o FileReader lança uma exceção FileNotFoundException que é derivada do IOException. A assinatura do método construtor FileReader exige um tratamento dela. A inclusão do throws IOException() na assinatura do método garante o tratamento delegando para o chamador de M1() tratar adequadamente.
+
+#### 3.2 Lançar uma exceção
+
+throw é um statement, ele manda a exceção ser lançada.
+
+```java 
+public void M2() {
+    throw new IOException();
+}
+```
+Este método lança uma exceção mas não exige que ela seja tratada por seus chamadores. Ele transfere o controle do fluxo para os métodos chamadores. Ele usa o que se chama unckecked exception, ou seja, uma exceção é lançada mas nada obriga ela ser tratada. É tratado em tempo de execução.
+
+### 4. Use try and catch blocks
+
+https://www.w3schools.com/java/java_try_catch.asp
+
+The try statement allows you to define a block of code to be tested for errors while it is being executed.
+
+The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.
+
+The try and catch keywords come in pairs:
+
+```java 
+try {
+  //  Block of code to try
+}
+catch(Exception e) {
+  //  Block of code to handle errors
+}
+```
+
+Consider the following example:
+
+
+This will generate an error, because myNumbers[10] does not exist.
+```java 
+public class Main {
+  public static void main(String[ ] args) {
+    int[] myNumbers = {1, 2, 3};
+    System.out.println(myNumbers[10]); // error!
+  }
+}
+```
+
+The output will be something like this:
+
+``` 
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 10
+        at Main.main(Main.java:4)
+```
+
+If an error occurs, we can use try...catch to catch the error and execute some code to handle it:
+
+```java 
+public class Main {
+  public static void main(String[ ] args) {
+    try {
+      int[] myNumbers = {1, 2, 3};
+      System.out.println(myNumbers[10]);
+    } catch (Exception e) {
+      System.out.println("Something went wrong.");
+    }
+  }
+}
+```
+
+
 ## Arrays and ArrayLists
 ## Classes and Constructors
+## Java Methods

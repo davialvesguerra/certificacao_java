@@ -1165,5 +1165,245 @@ public class Main {
 
 
 ## Arrays and ArrayLists
+
+### 1. Use a one-dimensional array 
+
+An array is a type of Data Structure that can store collections of elements. These elements are stored in contiguous memory locations and the it provides efficient access to each element based on the index of the array element.
+
+#### 1.1 Formas de declarar um array 
+
+https://sentry.io/answers/how-do-i-declare-and-initialize-an-array-in-java/
+
+The easiest way to declare and initialize an array of a primitive type such as int in Java is by using the following syntax.
+
+```java 
+int[] myArray = new int[]{1, 2, 3};
+```
+
+This does a few things at once.
+
+- The int[] myArray says that we want to declare a new variable called myArray that has the type of an array of integers.
+- new int[] says we want to immediately allocate memory to store data in this array.
+- {1,2,3} is the data we want to store in the array. Java will count the elements in our initial array and automatically initialize the array with enough memory for three ints.
+
+If you don’t want to hard code the data immediately when you initialize the array, you can instead create an empty array (with all values initialized to zero) as follows.
+
+```java 
+int[] myArray = new int[3];
+```
+
+### 1.2 Outros tipos de array 
+
+You can use the same syntax to create arrays to store other objects. In the example below, we use Integer instead of int, which is very similar to the above code but initializes the default values to null instead of 0.
+
+```java 
+class Main {
+
+    public static void main(String[] args) {
+
+        // declare the variable and allocate memory
+        Integer[] myArray = new Integer[3];
+        myArray[1] = 100;
+        for (int i = 0; i < 3; i++) {
+            System.out.println(myArray[i]);
+        }
+    }
+}
+```
+
+O output será:
+
+```java 
+null
+100
+null
+```
+
+https://www.geeksforgeeks.org/default-values-assigned-to-primitive-data-types-in-java/
+
+### 2. Create and manipulate an ArrayList 
+
+Java ArrayList is a part of the Java collections framework and it is a class of java.util package. It provides us with dynamic arrays in Java. Though, it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed. This class is found in java.util package. The main advantage of ArrayList in Java is, that if we declare an array then we need to mention the size, but in ArrayList, it is not needed to mention the size of ArrayList. If you want to mention the size then you can do it.
+
+Let’s create an ArrayList object named elements which stores string elements:
+
+```java 
+import java.util.ArrayList;    // Importing the ArrayList class from the java.util package
+
+// Creating an ArrayList to store String elements 
+ArrayList<String> elements = new ArrayList<String>();
+```
+
+#### 2.1 Important Features of ArrayList in Java
+
+- ArrayList inherits AbstractList class and implements the List interface.
+- ArrayList is initialized by size. However, the size is increased automatically if the collection grows or shrinks if the objects are removed from the collection.
+- Java ArrayList allows us to randomly access the list.
+- ArrayList can not be used for primitive types, like int, char, etc. We need a wrapper class for such cases.
+- ArrayList in Java can be seen as a vector in C++.
+- ArrayList is not Synchronized. Its equivalent synchronized class in Java is Vector.
+
+#### 2.2 Métodos de um ArrayList
+
+https://www.geeksforgeeks.org/arraylist-in-java/
+
+| Método | Descrição |
+|---|---|
+| `add(int index, Object element)` | Este método é usado para inserir um elemento específico em uma posição específica index em uma lista. |
+| `add(Object o)` | Este método é usado para adicionar um elemento específico ao final de uma lista. |
+| `addAll(Collection C)` | Este método é usado para adicionar todos os elementos de uma coleção específica ao final da lista mencionada, na ordem em que os valores são retornados pelo iterador da coleção especificada. |
+| `addAll(int index, Collection C)` | Usado para inserir todos os elementos a partir da posição especificada de uma coleção específica na lista mencionada. |
+| `clear()` | Este método é usado para remover todos os elementos de qualquer lista. |
+| `clone()` | Este método é usado para retornar uma cópia superficial de um ArrayList em Java. |
+| `contains(Object o)` | Retorna verdadeiro se esta lista contiver o elemento especificado. |
+| `ensureCapacity(int minCapacity)` | Aumenta a capacidade desta instância de ArrayList, se necessário, para garantir que ela possa conter pelo menos o número de elementos especificados pelo argumento de capacidade mínima. |
+| `forEach(Consumer<? super E> action)` | Executa a ação dada para cada elemento do Iterable até que todos os elementos tenham sido processados ou a ação lance uma exceção. |
+| `get(int index)` | Retorna o elemento na posição especificada nesta lista. |
+| `indexOf(Object O)` | O índice da primeira ocorrência de um elemento específico é retornado ou -1 caso o elemento não esteja na lista. |
+| `isEmpty()` | Retorna verdadeiro se esta lista não contiver elementos. |
+| `lastIndexOf(Object O)` | O índice da última ocorrência de um elemento específico é retornado ou -1 caso o elemento não esteja na lista. |
+| `listIterator()` | Retorna um iterador de lista sobre os elementos nesta lista (na sequência apropriada). |
+| `listIterator(int index)` | Retorna um iterador de lista sobre os elementos nesta lista (na sequência apropriada), começando na posição especificada na lista. |
+| `remove(int index)` | Remove o elemento na posição especificada nesta lista. |
+| `remove(Object o)` | Remove a primeira ocorrência do elemento especificado desta lista, se estiver presente. |
+| `removeAll(Collection c)` | Remove desta lista todos os seus elementos que estão contidos na coleção especificada. |
+| `removeIf(Predicate filter)` | Remove todos os elementos desta coleção que satisfaçam o predicado dado. |
+| `removeRange(int fromIndex, int toIndex)` | Remove desta lista todos os elementos cujo índice está entre fromIndex, inclusive, e toIndex, exclusivo. |
+| `retainAll(Collection<?> c)` | Retém apenas os elementos nesta lista que estão contidos na coleção especificada. |
+| `set(int index, E element)` | Substitui o elemento na posição especificada nesta lista pelo elemento especificado. |
+| `size()` | Retorna o número de elementos nesta lista. |
+| `spliterator()` | Cria um Spliterator de ligação tardia e fail-fast sobre os elementos nesta lista. |
+| `subList(int fromIndex, int toIndex)` | Retorna uma visão da parte desta lista entre o fromIndex especificado, inclusive, e toIndex, exclusivo. |
+| `toArray()` | Este método é usado para retornar um array contendo todos os elementos na lista na ordem correta. |
+| `toArray(Object[] O)` | Também é usado para retornar um array contendo todos os elementos nesta lista na ordem correta, assim como o método anterior. |
+| `trimToSize()` | Este método é usado para ajustar a capacidade da instância do ArrayList ao tamanho atual da lista. |
+
+
+### 3. Traverse the elements of an ArrayList by using iterators and loops including the enhanced for loop 
+
+
+#### 3.1 Usando Iterators 
+
+
+https://www.w3schools.com/java/java_iterator.asp
+
+```java 
+// Java program to iterate over an ArrayList
+// Using Iterator
+
+// Importing all utility classes
+import java.util.*;
+
+// Main class
+class GFG {
+
+    // Main driver method
+    public static void main(String[] args)
+    {
+        // Declaring and initializing ArrayList
+        List<Integer> numbers
+            = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
+
+        // Iterating ArrayList using Iterator
+        Iterator it = numbers.iterator();
+
+        // Holds true till there is single element
+        // remaining in the list
+        while (it.hasNext())
+
+            // Print the elements of ArrayList
+            System.out.print(it.next() + " ");
+    }
+}
+```
+
+#### 3.2 Usando Loops 
+
+```java 
+// Java  program to iterate over an ArrayList
+// Using for loop
+
+// Importing all utility classes 
+import java.util.*;
+
+// Main class 
+class GFG {
+  
+    // Main driver method  
+    public static void main(String[] args)
+    {
+        // Creating and initializing the ArrayList
+        // Declaring object of integer type 
+        List<Integer> numbers = Arrays.asList(1, 2, 3,
+                                       4, 5, 6, 7, 8);
+
+        // Iterating using for loop
+        for (int i = 0; i < numbers.size(); i++) 
+          
+            // Printing and display the elements in ArrayList 
+            System.out.print(numbers.get(i) + " ");        
+    }
+}
+```
+
+
+#### 3.3 Usando enhanced loop
+
+```java 
+// Java program to iterate over an arraylist
+// using Iterator in Java8 with Lambda Expression 
+
+// Importing all utility classes 
+import java.util.*;
+
+// Main class 
+class GFG {
+  
+    // Main driver method 
+    public static void main(String[] args)
+    {
+        // Declaring and initializing ArrayList
+        // Custom input elements 
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 
+                                       4, 5, 6, 7, 8);
+
+        // Printing numbers using lambda expressions
+        // been introduced later in java8
+        numbers.forEach(number->System.out.println(number));
+
+    }
+}
+```
+
+
+### 4. Compare an array and an ArrayList 
+
+https://byjus.com/gate/difference-between-array-and-arraylist-in-java/#:~:text=The%20array%20is%20a%20specified,a%20variable%2Dlength%20Collection%20class.
+
+| Nº | Array | ArrayList |
+|---|---|---|
+| 1. | Here we can’t revise the length of the array once constructed. | In ArrayList, we can revise the length of the array. |
+| 2. | An array can hold primitives and objects both in Java. | ArrayList can only hold objects, not primitives. |
+| 3. | It can either be single-dimensional or multidimensional. | It can be only single-dimensional. |
+| 4. | Through the length keyword, we can determine the total size of an array. | Through the size() method, we can determine the size of an ArrayList. |
+| 5. | Array is static. | ArrayList is dynamic and can be modified the size whenever needed. |
+| 6. | It is faster than ArrayList due to its static behaviour. | It is slower as compared to the Array due to its dynamic behaviour. |
+
+
 ## Classes and Constructors
+
+### 1. Create a new class including a main method
+
+### 2. Use the private modifier
+
+### 3. Describe the relationship between an object and its members
+
+### 4. Describe the difference between a class variable, an instance variable, and a local variable
+
+### 5. Develop code that creates an object's default constructor and modifies the object's fields
+
+### 6. Use constructors with and without parameters
+
+### 7. Develop code that overloads constructors
+
 ## Java Methods

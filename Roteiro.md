@@ -1392,18 +1392,351 @@ https://byjus.com/gate/difference-between-array-and-arraylist-in-java/#:~:text=T
 
 ## Classes and Constructors
 
+A Class is like an object constructor, or a "blueprint" for creating objects.
+
 ### 1. Create a new class including a main method
+
+To create a class, use the keyword `class`:
+
+```java 
+public class Main {
+  int x = 5;
+}
+```
+
+Um objeto é a invocação dessa classe. Para inovar a classe `Main` é preciso:
+
+```java
+Main nomeObjeto = new Main();
+```
+#### 1.1 Método main
+
+When a Java program is executed, the Java Virtual Machine (JVM) looks for the main() method to begin execution. This method must adhere to a strict signature to be recognized by the JVM.
+
+The main() is the starting point for JVM to start execution of a Java program. Without the main() method, JVM will not execute the program. The syntax of the main() method is:
+
+![alt text](image-3.png)
+
+Here is a simple example of a Java program using the main() method:
+
+```java 
+public class HelloWorld {  
+    public static void main(String[] args) {  
+        System.out.println("Hello, World!");  
+    }  
+}  
+```
+https://www.javatpoint.com/java-main-method
 
 ### 2. Use the private modifier
 
+https://www.geeksforgeeks.org/access-modifiers-java/
+
+The private access modifier is specified using the keyword private. The methods or data members declared as private are accessible only within the class in which they are declared.
+
+- Any other class of the same package will not be able to access these members.
+- Top-level classes or interfaces can not be declared as private because
+- private means “only visible within the enclosing class”.
+
+Hence these modifiers in terms of application to classes, apply only to nested classes and not on top-level classes.
+
+Use private for variables that should only be accessible within the class: If you want to prevent access to a variable from outside the class, use the private access modifier. This is the most restrictive access modifier and provides the greatest level of encapsulation.
+
+```java 
+// Java program to illustrate error while
+// Using class from different package with
+
+// Private Modifier
+package p1;
+
+// Class A
+class A {
+    private void display()
+    {
+        System.out.println("GeeksforGeeks");
+    }
+}
+
+// Class B
+class B {
+    public static void main(String args[])
+    {
+        A obj = new A();
+        // Trying to access private method
+        // of another class
+        obj.display();
+    }
+}
+```
+Output:
+
+```
+error: display() has private access in A
+        obj.display();
+```
+
 ### 3. Describe the relationship between an object and its members
+
+Describe the relationship between an object and its members in Java
+In Java, an object is an instance of a class, and it represents a specific entity with state and behavior. The relationship between an object and its members (fields and methods) is central to understanding object-oriented programming (OOP). Here's a breakdown of this relationship:
+
+ - **Fields (Instance Variables):**
+
+**State:** Fields store the state or attributes of an object. Each object of a class has its own copy of these fields. For example, in a Car class, fields might include color, model, and speed.
+
+**Access:** Fields can be accessed and modified by the object's methods. They can be private, protected, public, or have package-private access to control visibility.
+
+- **Methods**:
+
+**Behavior:** Methods define the behavior or actions that an object can perform. They operate on the fields of the object. For example, a Car class might have methods like accelerate(), brake(), and paint(String newColor).
+
+**Encapsulation:** Methods provide a way to interact with an object's data. They encapsulate the internal state and enforce a controlled way to read and modify that state. This helps in maintaining data integrity and hiding the internal implementation details from the outside world.
+
+- **Constructors**:
+
+**Initialization**: Constructors are special methods used to initialize objects. They set up the initial state of an object by assigning values to fields when an object is created. Constructors have the same name as the class and do not return a value.
+
+- **Access Modifiers:**
+
+**Visibility:** Fields and methods can have different levels of visibility (private, protected, public, or package-private). This controls how they can be accessed from other classes and helps in achieving encapsulation.
+
 
 ### 4. Describe the difference between a class variable, an instance variable, and a local variable
 
+#### 4.1 Class Variable (Static Variables):
+
+**Definition:** Declared with the static keyword within a class but outside any method, constructor, or block.
+
+**Scope:** Shared among all instances of the class. There is only one copy of the class variable, regardless of how many objects of the class are created.
+
+**Lifetime:** Exists for the duration of the program's runtime.
+
+**Access:** Can be accessed directly using the class name (e.g., `ClassName.variableName`) without needing an object instance.
+
+**Example**: 
+
+```java 
+public class Example {
+    static int classVariable = 10;
+}
+```
+
+#### 4.2 Instance Variables
+
+**Definition:** Declared within a class but outside any method, constructor, or block. They do not use the static keyword.
+
+**Scope:** Belong to individual instances of the class. Each object has its own copy of the instance variables.
+
+**Lifetime:** Exist as long as the object exists.
+
+**Access:** Accessed using the object reference (e.g., objectName.variableName).
+
+**Example**
+
+```java 
+public class Example {
+    int instanceVariable = 20;
+}
+```
+
+#### 4.3 Local Variables
+
+**Definition**: Declared within a method, constructor, or block.
+
+**Scope**: Limited to the method, constructor, or block in which they are declared.
+
+**Lifetime**: Exist only during the execution of the block, method, or constructor in which they are defined.
+
+**Access**: Cannot be accessed outside the method, constructor, or block where they are declared.
+
+```java 
+public class Example {
+    void method() {
+        int localVariable = 30;
+    }
+}
+```
+
+In summary:
+
+- **Class Variables** are shared across all instances and are accessed using the class name.
+
+- **Instance Variables** are unique to each instance of a class and are accessed using the object reference.
+
+- **Local Variables** are defined within methods or blocks and are only accessible within that scope.
+
 ### 5. Develop code that creates an object's default constructor and modifies the object's fields
+
+step-by-step code example:
+
+1. **Define the class:**
+
+- The class will have some fields (instance variables).
+
+- We'll include a default constructor which is automatically provided by Java if no constructors are defined.
+
+2. **Instantiate the object:**
+
+- We'll create an object of this class using the default constructor.
+
+3. Modify the object's fields:
+
+- We'll set new values to the object's fields.
+
+```java 
+public class Example {
+
+    // Fields (Instance Variables)
+    int number;
+    String text;
+
+    // Default Constructor (implicitly provided if no other constructors are defined)
+    public Example() {
+        // Initialize fields with default values (optional)
+        number = 0;
+        text = "Default";
+    }
+
+    public static void main(String[] args) {
+        // Step 2: Instantiate the object using the default constructor
+        Example obj = new Example();
+
+        // Print initial values
+        System.out.println("Initial values: number = " + obj.number + ", text = " + obj.text);
+
+        // Step 3: Modify the object's fields
+        obj.number = 42;
+        obj.text = "Hello, world!";
+
+        // Print modified values
+        System.out.println("Modified values: number = " + obj.number + ", text = " + obj.text);
+    }
+}
+```
+
+**Explanation:**
+
+**Class Definition:** We define a class Example with two fields: number (an integer) and text (a string).
+
+**Default Constructor:** The default constructor initializes the fields with default values (number to 0 and text to "Default"). This step is optional because Java provides a default constructor if none is defined.
+
+**Main Method:** In the main method, we instantiate the Example class using the default constructor and modify the fields number and text. We print the initial and modified values to demonstrate the changes.
+
 
 ### 6. Use constructors with and without parameters
 
+https://www.geeksforgeeks.org/constructors-in-java/
+
+#### 6.1 Types of Constructors in Java
+
+Now is the correct time to discuss the types of the constructor, so primarily there are three types of constructors in Java are mentioned below:
+
+- Default Constructor
+- Parameterized Constructor
+- Copy Constructor
+
+#### 6.1.1 Default Constructor in Java
+
+A constructor that has no parameters is known as default the constructor. A default constructor is invisible. And if we write a constructor with no arguments, the compiler does not create a default constructor. It is taken out. It is being overloaded and called a parameterized constructor. The default constructor changed into the parameterized constructor. But Parameterized constructor can’t change the default constructor. The default constructor can be implicit or explicit. If we don’t define explicitly, we get an implicit default constructor. If we manually write a constructor, the implicit one is overridded.
+
+```java 
+// Java Program to demonstrate
+// Default Constructor
+import java.io.*;
+
+// Driver class
+class GFG {
+
+    // Default Constructor
+    GFG() { System.out.println("Default constructor"); }
+
+    // Driver function
+    public static void main(String[] args)
+    {
+        GFG hello = new GFG();
+    }
+}
+```
+
+#### 6.1.2 Parameterized Constructor in Java
+
+A constructor that has parameters is known as parameterized constructor. If we want to initialize fields of the class with our own values, then use a parameterized constructor.
+
+```java 
+// Java Program for Parameterized Constructor
+import java.io.*;
+class Geek {
+    // data members of the class.
+    String name;
+    int id;
+    Geek(String name, int id)
+    {
+        this.name = name;
+        this.id = id;
+    }
+}
+class GFG {
+    public static void main(String[] args)
+    {
+        // This would invoke the parameterized constructor.
+        Geek geek1 = new Geek("Avinash", 68);
+        System.out.println("GeekName :" + geek1.name
+                           + " and GeekId :" + geek1.id);
+    }
+}
+```
+
+#### 6.1.3 Copy Constructor in Java
+
+Unlike other constructors copy constructor is passed with another object which copies the data available from the passed object to the newly created object.
+
+```java 
+// Java Program for Copy Constructor
+import java.io.*;
+
+class Geek {
+    // data members of the class.
+    String name;
+    int id;
+
+    // Parameterized Constructor
+    Geek(String name, int id)
+    {
+        this.name = name;
+        this.id = id;
+    }
+
+    // Copy Constructor
+    Geek(Geek obj2)
+    {
+        this.name = obj2.name;
+        this.id = obj2.id;
+    }
+}
+class GFG {
+    public static void main(String[] args)
+    {
+        // This would invoke the parameterized constructor.
+        System.out.println("First Object");
+        Geek geek1 = new Geek("Avinash", 68);
+        System.out.println("GeekName :" + geek1.name
+                           + " and GeekId :" + geek1.id);
+
+        System.out.println();
+
+        // This would invoke the copy constructor.
+        Geek geek2 = new Geek(geek1);
+        System.out.println(
+            "Copy Constructor used Second Object");
+        System.out.println("GeekName :" + geek2.name
+                           + " and GeekId :" + geek2.id);
+    }
+}
+```
+
+
 ### 7. Develop code that overloads constructors
+
+https://www.theserverside.com/video/Constructor-overloading-in-Java#:~:text=Constructor%20overloading%20in%20Java%20occurs,when%20property%20values%20are%20unknown.
 
 ## Java Methods

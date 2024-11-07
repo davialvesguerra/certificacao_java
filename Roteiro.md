@@ -890,7 +890,7 @@ if(condition){
 ```
 Here’s a simple example to illustrate the usage of the “if-else” statement:
 
-```java
+```java 
 public class IfElseStatementExample {
     public static void main(String[] args) {
         int age = 16;
@@ -1739,4 +1739,222 @@ class GFG {
 
 https://www.theserverside.com/video/Constructor-overloading-in-Java#:~:text=Constructor%20overloading%20in%20Java%20occurs,when%20property%20values%20are%20unknown.
 
+Constructor overloading in Java occurs when a class has multiple constructors, each with a separate and unique method signature. 
+
+Imagine a simple Java class that represents a point on a Cartesian plane. The class has two properties: x and y. The following code is an example.
+
+```java 
+public class Point {
+  int x;
+  int y;
+}
+```
+
+For a user of this class to set the x and y value of Point, you must provide a constructor that takes two arguments
+
+
+
+```java 
+public class Point {
+  int x;
+  int y;
+
+  Point(int a, int b){
+    x = a;
+    y = b;
+  }
+}
+
+```
+The following code shows how to write the code to create a point at Coordinates 4 and 2.
+
+```java 
+Point p1 = new Point(4,2);
+```
+
+**Overloading with the zero-argument constructor**
+
+However, it might also be common in the application to create an origin point at coordinates (0,0). In this case, the developer might provide a zero-argument constructor that lets a developer create a point with 0, 0 as the defaults.
+
+```java 
+Point() {
+  x = 0;
+  y = 0;
+}
+```
+
+**Overloading with more parameterized constructor**
+
+Furthermore, you might need a Point where x and y have the same value. To perform this task, we could provide a constructor that takes only one value that is assigned to both x and y.
+
+```java 
+Point(int a){
+  x = a;
+  y = a;
+}
+```
+
+
 ## Java Methods
+
+### 1. Describe and create a method
+
+A method in Java is a block of code that performs a sp
+ecific task. Methods are used to perform certain actions, and they are also known as functions. A method is executed when it is called or invoked.
+
+#### Method Syntax
+
+The syntax of a method in Java is as follows:
+```java
+returnType methodName(parameters) {
+    // method body
+}
+```
+
+- `returnType`: The data type of the value returned by the method. If the method does not return a value, use `void`.
+- `methodName`: The name of the method. It should be a valid identifier.
+- `parameters`: A comma-separated list of input parameters for the method. If there are no parameters, use empty parentheses `()`.
+
+#### Example
+
+Here is an example of a simple method in Java:
+
+```java
+public class Example {
+    // Method to add two numbers
+    public int add(int a, int b) {
+        int sum = a + b;
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Example example = new Example();
+        int result = example.add(5, 3);
+        System.out.println("Sum: " + result); // Output: Sum: 8
+    }
+}
+```
+
+In this example, the `add` method takes two integer parameters `a` and `b`, adds them, and returns the sum. The `main` method creates an instance of the `Example` class, calls the `add` method, and prints the result.
+
+### 2. Create and use accessor and mutator methods
+
+Accessor and mutator methods are used to access and modify the private fields of a class. They are also known as getter and setter methods.
+
+#### Accessor Methods (Getters)
+
+Accessor methods are used to retrieve the value of a private field. They typically have the prefix `get` followed by the field name with the first letter capitalized.
+
+#### Mutator Methods (Setters)
+
+Mutator methods are used to modify the value of a private field. They typically have the prefix `set` followed by the field name with the first letter capitalized.
+
+#### Example
+
+Here is an example of a class with accessor and mutator methods:
+```java
+public class Person {
+    private String name;
+    private int age;
+
+    // Accessor method (getter) for name
+    public String getName() {
+        return name;
+    }
+
+    // Mutator method (setter) for name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Accessor method (getter) for age
+    public int getAge() {
+        return age;
+    }
+
+    // Mutator method (setter) for age
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("John");
+        person.setAge(30);
+
+        System.out.println("Name: " + person.getName());
+        System.out.println("Age: " + person.getAge());
+    }
+}
+```
+### 3. Create overloaded methods
+
+Overloading methods in Java means creating multiple methods in the same class with the same name but different parameters (different type, number, or both). This allows methods to handle different types of input.
+
+Here's an example of overloaded methods in Java:
+
+```java 
+public class MathOperations {
+
+    // Method to add two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Overloaded method to add three integers
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Overloaded method to add two double values
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    // Overloaded method to add three double values
+    public double add(double a, double b, double c) {
+        return a + b + c;
+    }
+
+    public static void main(String[] args) {
+        MathOperations math = new MathOperations();
+
+        // Calling the overloaded methods
+        System.out.println("Sum of 2 and 3: " + math.add(2, 3));
+        System.out.println("Sum of 1, 2 and 3: " + math.add(1, 2, 3));
+        System.out.println("Sum of 2.5 and 3.5: " + math.add(2.5, 3.5));
+        System.out.println("Sum of 1.1, 2.2 and 3.3: " + math.add(1.1, 2.2, 3.3));
+    }
+}
+```
+
+
+### 4. Describe a static method and demonstrate its use within a program
+
+A static method in Java belongs to the class rather than instances of the class. This means you can call a static method without creating an instance of the class. Static methods can access static variables and other static methods directly.
+
+Here's an example of a static method and its usage:
+
+```java
+public class Utility {
+
+    // Static method to find the maximum of two numbers
+    public static int max(int a, int b) {
+        return (a > b) ? a : b;
+    }
+
+    // Static method to convert a string to uppercase
+    public static String toUpperCase(String str) {
+        return str.toUpperCase();
+    }
+
+    public static void main(String[] args) {
+        // Calling static methods without creating an instance of the class
+        int maxNumber = Utility.max(10, 20);
+        String upperCaseString = Utility.toUpperCase("hello");
+
+        System.out.println("Maximum number: " + maxNumber);
+        System.out.println("Uppercase string: " + upperCaseString);
+    }
+}
+```

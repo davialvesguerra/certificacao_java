@@ -23,7 +23,6 @@ Abaixo cabe destacar algumas das características da linguagem Java:
 2) Aplicações do mundo real
 - [Aplicações do Java no mundo real]()
 
-text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
 
  - Enterprise Software Development
  - Android Application Development
@@ -81,6 +80,8 @@ Polymorphism means “many forms” and it allows one interface to be used for a
 #### Abstraction
 
 Abstraction is the concept of hiding the complex implementation details and showing only the essential features of the object. It helps in reducing programming complexity and effort. In Java, abstraction is achieved using abstract classes and interfaces.
+
+https://blog.rocketseat.com.br/entendendo-a-abstracao-em-poo-com-java/
 
 #### Exemplo
 

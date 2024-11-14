@@ -1,15 +1,10 @@
 # Certificação Java Foundations
-Repositório com intuito de obter a certificação Java Foundations
+Repositório com intuito de obter a certificação Java Foundations (Exam 1Z0-811)
 
 ## Tópicos Abordados
 
-- Java Basics
-- Basic Java Elements
-- Working with Java Data Types
-- Working with Java Operator
-- Working with the String Class
-- Using Decision Statements
-- Java Methods
-- Using Looping Statements
-- Arrays and ArrayLists
-- Classes and Constructors
+O arquivo `Roteiro.md` é responsável por mostrar todo o conteúdo teórico para a prova.
+
+O arquivo `Pegadinhas.md` mostra alguns casos práticos e algumas pegadinhas que podem ocorrer na prova.
+
+O arquivo `Inscricao.md` exibe o passo a passo para a inscrição da prova, pagamento e ressarcimento (se você for do BB).

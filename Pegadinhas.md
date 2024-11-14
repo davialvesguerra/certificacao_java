@@ -22,7 +22,9 @@ class Test{
 ```
 
 a) Não compila por erro na linha B
+
 b) Compila e imprime
+
 c) Não compila por erro na linha A
 
 Resposta:
@@ -144,9 +146,13 @@ public class Test {
 
 
 a) Erro de compilação na linha B
+
 b) Erro de compilação na linha C
+
 c) Erro de compilação na linhaA
+
 d) Compila mas lança exception
+
 e) Imprime 10
 
 Resposta: 

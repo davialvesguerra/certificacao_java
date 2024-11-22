@@ -212,3 +212,246 @@ Resposta:
 
 A resposta certa é que imprime 5.
 
+## Diferenciar entre variáveis de referência a objetos e tipos primitivos
+
+### Q1 
+
+```java 
+class A {
+    public static void main(String[] args) {
+        int x = 15;
+        int y = x;
+        y++;
+        x++;
+        int z = y;
+        z--;
+        System.out.println(x + y + z);
+    }
+}
+```
+
+a) Imprime 46
+b) Imprime 47
+c) Imprime 43
+d) Imprime 45
+e) Imprime 44
+
+*Resposta*
+
+letra b)
+
+### Q2)
+
+```java 
+
+class B {
+    int v = 15;
+}
+class A {
+    public static void main(String[] args) {
+        B x = new B();
+        B y = x;
+        y.v++;
+        x.v++;
+        B z = y;
+        z.v--;
+        System.out.println(x.v + y.v + z.v);
+    }
+}
+```
+
+
+
+a) Imprime 47
+
+b) Imprime 48
+
+c) Imprime 43
+
+d) Imprime 46
+
+e) Imprime 44
+
+*Resposta*
+
+letra b)
+
+## Manipulando Strings
+
+### Q1
+
+```java 
+
+class A{
+    public static void main(String [] args){
+        String s = "aba";
+        for(int i = 0; i < 9; i++) {
+            s = s +"aba";
+        }
+        System.out.println(s.length);
+    }
+}
+```
+a) Não compila
+
+b) Compila e imprime 36
+
+c) Compila e imprime 30
+
+d) Compila e imprime 3
+
+e) Compila e imprime 33
+
+*Resposta*
+
+Não compila, pois length() é um método de String, diferente dos arrays em que length é um atributo.
+
+### Q2
+
+```java 
+class B {
+    String msg;
+
+    void imprime() {
+        if (!msg.isEmpty())
+            System.out.println(msg);
+        else
+            System.out.println("vazio");
+    }
+}
+```
+
+a) Compila, mas dá exceção na hora de rodar
+
+b) Compila, roda e não imprime nada
+
+c) Não compila
+
+d) Compila, roda e imprime "vazio"
+
+### Q3
+
+```java 
+
+class B {
+
+    void imprime() {
+        String msg;
+        if (!msg.isEmpty())
+            System.out.println(msg);
+        else
+            System.out.println("vazio");
+    }
+}
+```
+
+a) Compila, mas dá exceção na hora de rodar
+
+b) Não compila
+
+c) Compila, roda e não imprime nada
+
+d) Compila, roda e imprime "vazio"
+
+
+*Resposta*
+
+Não compila, pois a variável não foi inicializada
+
+### Q5
+
+```java 
+class A {
+    String vazio;
+    public static void main(String[] args) {
+        String full = "Bem-vindo " + vazio;
+        System.out.println(full);
+    }
+}
+```
+
+a) Compila e imprime "Bem-vindo ".
+
+b) Compila e imprime outro resultado que não foi mencionado nessas alternativas.
+
+c) Não compila por outro motivo.
+
+d) Compila e imprime "Bem-vindo vazio".
+
+e) Não compila pois vazio é nulo.
+
+*Resposta*
+
+Não compila por outro motivo: a variável `vazio` não é estática.
+
+
+## Crie métodos com argumentos e valores de retorno
+
+### Q1
+
+```java
+
+class A {
+    public static void main(String[] args) {
+        x(args.length);
+    }
+    static int x(int l) {
+        for(int i=0;i<100;i++) {
+            switch(i) {
+                case l:
+                    System.out.println(l);
+                    if(l==i) return;
+                case 0:
+                    System.out.println(0);
+            }
+        }
+        System.out.println("Fim");
+        return -1;
+    }
+}
+```
+
+a) Não compila
+
+b) Compila e ao rodar com cinco parâmetros, imprime 0, 5, 0, -1 e Fim.
+
+c) Compila e ao rodar com cinco parâmetros, imprime 0, 5, 0 e Fim.
+
+d) Compila e ao rodar com cinco parâmetros, imprime 0, 5 e Fim.
+
+e) Compila e ao rodar com cinco parâmetros, imprime 0 e 5.
+
+*Resposta*
+
+O código não compila pois existe um `return` sem valor e está sendo utilizado um valor não constante no `case` do `switch`.
+
+### Q2 
+
+```java 
+class A {
+    public static void main(String[] args) {
+        System.out.println(a(args.length));
+    }
+    static int a(int l) {
+        if(l<10) return b(l); //A
+        else return c(); // B
+    }
+    static int b(int l) {
+        if(l<10) return b(l); // C
+        else return c(); // D
+    }
+    static long c() {
+        return 3;
+    }
+}
+```
+
+a) Não compila: erro nas linhas B e D
+
+b) Compila e, ao chamar com 15 argumentos, entra em loop infinito.
+
+c) Não compila: erro nas linha A e C
+
+d) Compila e, ao chamar com 15 argumentos, imprime 3.
+
+e) Não compila por um motivo não listado
